@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: ai-why-did-this-happen-analyzer
+    runtime: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r requirements.txt
+    startCommand: sh -c "streamlit run app.py --server.port=${PORT:-8501} --server.address=0.0.0.0 --server.headless=true --server.enableCORS=false --server.enableXsrfProtection=false"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: STREAMLIT_SERVER_HEADLESS
+        value: "true"
+      - key: STREAMLIT_SERVER_ENABLE_CORS
+        value: "false"
+      - key: STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION
+        value: "false"

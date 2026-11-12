@@ -1,0 +1,15 @@
+# Ignore Python source code and heavy dependencies from Vercel Serverless Function bundling
+*.py
+requirements.txt
+runtime.txt
+Procfile
+render.yaml
+Dockerfile
+.dockerignore
+modules/
+components/
+config/
+data/
+tests/
+utils/
+.streamlit/
